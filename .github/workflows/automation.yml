@@ -1,0 +1,17 @@
+name: 自動化
+
+on:
+  schedule:
+    - cron: "0 5,17 * * *"
+  workflow_dispatch:
+
+jobs:
+  automation:
+    name: 自動化
+    runs-on: macos-latest
+    steps:
+      - name: Bahamut Automation
+        uses: JacobLinCool/Bahamut-Automation@v0.6.2
+        with:
+          modules: "login,ad_handler,sign,report,answer,report,lottery,report,logout,report"
+          parameters: ${{ secrets.parameters }}
